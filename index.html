@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hassan Mohamed Hassan - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 123, 255, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: #007bff;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        h1, h2 {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #007bff, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* Cover Section */
+        #cover {
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        radial-gradient(circle at 30% 40%, rgba(0, 123, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(0, 168, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .cover-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cover-content p {
+            font-size: 1.3em;
+            margin: 30px 0;
+            color: #b8b8b8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #007bff, #00a8ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+        }
+
+        /* About Section */
+        #about {
+            background: rgba(16, 33, 62, 0.3);
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2em;
+            color: #b8b8b8;
+            margin-bottom: 20px;
+        }
+
+        /* Education Section */
+        .education-item {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #007bff;
+            margin-bottom: 30px;
+        }
+
+        .education-item h3 {
+            color: #007bff;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .education-item .details {
+            color: #b8b8b8;
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: rgba(16, 33, 62, 0.3);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .skill-category {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: #b8b8b8;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.2);
+        }
+
+        .project-card h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .project-card .date {
+            color: #00a8ff;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            color: #b8b8b8;
+            margin-bottom: 15px;
+        }
+
+        .project-card .tech {
+            color: #007bff;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* Services Section */
+        #services {
+            background: rgba(16, 33, 62, 0.3);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 123, 255, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .service-card p {
+            color: #b8b8b8;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-item {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(0, 123, 255, 0.2);
+        }
+
+        .contact-item h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .contact-item a {
+            color: #b8b8b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 5px 15px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .projects-grid,
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media print {
+            nav {
+                display: none;
+            }
+            
+            section {
+                min-height: auto;
+                page-break-inside: avoid;
+                padding: 40px 0;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .project-card, .service-card, .contact-item, .education-item, .skill-category {
+                background: #f8f9fa !important;
+                color: black !important;
+                border: 1px solid #dee2e6 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#cover">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cover Section -->
+    <section id="cover">
+        <div class="container">
+            <div class="cover-content">
+                <h1>Hassan Mohamed Hassan</h1>
+                <p>Software Engineer | Full-Stack Developer | AI Engineering Enthusiast</p>
+                <p>Passionate about building scalable web applications and AI-powered solutions using cutting-edge technologies.</p>
+                <a href="#contact" class="cta-button">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a dedicated Software Engineer with a solid foundation in Computer Science, specializing in full-stack web development and AI engineering. My expertise spans across the MEAN stack (MongoDB, Express.js, Angular, Node.js) and various programming languages including C++, Python, JavaScript, and Java.</p>
+                <p>With a strong understanding of data structures, algorithms, and design patterns, I am committed to building innovative and scalable solutions. My goal is to leverage my technical skills and problem-solving abilities to contribute to dynamic teams and create impactful software applications.</p>
+                <p>Currently pursuing my Bachelor's degree in Computer Science at Ain Shams University with a CGPA of 3.25, I continuously strive to enhance my expertise in emerging technologies and software engineering best practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Bachelor's Degree in Computer Science</h3>
+                <div class="details">Ain Shams University | Cairo, Egypt | 2021 – 2025</div>
+                <p><strong>CGPA:</strong> 3.25</p>
+                <p>Comprehensive study of computer science fundamentals including data structures, algorithms, software engineering, database systems, and machine learning. Strong focus on practical application through hands-on projects and collaborative learning.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>C++ (Advanced)</li>
+                        <li>Python (Advanced)</li>
+                        <li>JavaScript (Advanced)</li>
+                        <li>TypeScript (Advanced)</li>
+                        <li>Java (Intermediate)</li>
+                        <li>C (Intermediate)</li>
+                        <li>C# (Intermediate)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Web Technologies</h3>
+                    <ul class="skill-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>Angular Framework</li>
+                        <li>Node.js & Express.js</li>
+                        <li>RESTful APIs</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Databases & Tools</h3>
+                    <ul class="skill-list">
+                        <li>MongoDB</li>
+                        <li>PostgreSQL</li>
+                        <li>SQL</li>
+                        <li>Git & GitHub</li>
+                        <li>Jira</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Competencies</h3>
+                    <ul class="skill-list">
+                        <li>Data Structures & Algorithms</li>
+                        <li>Machine Learning</li>
+                        <li>Design Patterns</li>
+                        <li>SDLC</li>
+                        <li>Problem Solving</li>
+                        <li>System Design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>MEAN Full-Stack Portfolio</h3>
+                    <div class="date">July 2025 – August 2025</div>
+                    <p>Developed a personal portfolio web application using MongoDB, Express.js, Angular, and Node.js. Built a responsive Angular frontend and RESTful backend API with modular architecture for scalability.</p>
+                    <div class="tech">Tech: Angular, Node.js, Express.js, MongoDB</div>
+                </div>
+                <div class="project-card">
+                    <h3>FOS Operating System</h3>
+                    <div class="date">October 2024 – January 2024</div>
+                    <p>Developed a C-based operating system implementing 30+ functions across memory management, fault handling, kernel operations, and CPU scheduling using various algorithms.</p>
+                    <div class="tech">Tech: C Programming, OS Concepts, Memory Management, Scheduling Algorithms</div>
+                </div>
+                <div class="project-card">
+                    <h3>Image Encryption & Compression System</h3>
+                    <div class="date">April 2024 – June 2024</div>
+                    <p>Built a C# system for image encryption and compression using Huffman coding and LFSR algorithms. Implemented custom data structures including priority queues from scratch.</p>
+                    <div class="tech">Tech: C#, Huffman Coding, LFSR, Custom Data Structures</div>
+                </div>
+                <div class="project-card">
+                    <h3>Compiler for Tiny Language</h3>
+                    <div class="date">December 2023 – January 2024</div>
+                    <p>Designed and implemented a complete compiler including lexical analyzer, parser, and parse tree visualizer. Built Windows Forms GUI for code input and visualization.</p>
+                    <div class="tech">Tech: C#, Compiler Design, Windows Forms, Context-Free Grammar</div>
+                </div>
+                <div class="project-card">
+                    <h3>Mini-Wasalny Transportation App</h3>
+                    <div class="date">April 2023 – June 2023</div>
+                    <p>Transportation application to find shortest path between cities with minimum cost using graph algorithms including DFS, BFS, and Dijkstra's algorithm.</p>
+                    <div class="tech">Tech: C++, Qt GUI, Graph Algorithms, Data Structures</div>
+                </div>
+                <div class="project-card">
+                    <h3>Shipping Company Website</h3>
+                    <div class="date">August 2023 – September 2023</div>
+                    <p>Responsive website for shipping and delivery services from different countries with modern UI/UX design and interactive features.</p>
+                    <div class="tech">Tech: HTML5, CSS3, JavaScript</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2>Services Offered</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Full-Stack Web Development</h3>
+                    <p>End-to-end web application development using MEAN stack (MongoDB, Express.js, Angular, Node.js). Creating responsive, scalable, and user-friendly web solutions with modern design principles and best practices.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>AI Agents & Automation Tools</h3>
+                    <p>Development of intelligent automation solutions and AI-powered agents using software engineering and AI engineering principles. Creating smart systems that streamline business processes and enhance productivity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-content">
+                <p>Let's connect and discuss how we can work together to bring your ideas to life!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:7assan.mohamed.7@gmail.com">7assan.mohamed.7@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <a href="tel:+201029608121">+20 102 960 8121</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <span>Cairo, Egypt</span>
+                    </div>
+                    <div class="contact-item">
+                        <h3>LinkedIn</h3>
+                        <a href="#" target="_blank">Connect with me</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>GitHub</h3>
+                        <a href="#" target="_blank">View my code</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
